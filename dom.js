@@ -42,7 +42,37 @@ console.log(li)
 
 for (var i=0;i<li.length;i++){
     li[i].style.color="red"
+} 
+
+var qh= document.querySelector('input');
+qh.value="get input value"
+
+var submit=document.querySelector('input[type="submit"]')
+submit.value="send"
+
+var sql= document.querySelector('.list-group-item:nth-child(2)')
+sql.style.backgroundColor="green"
+
+var four=document.querySelector('.list-group-item:nth-child(3)')
+four.style.display="none"
+
+var secondall= document.querySelectorAll('.list-group-item1')
+secondall[1].style.color="green";
+
+var selectodd= document.querySelectorAll('.list-group-item1:nth-child(odd)')
+for (var i=0;i<selectodd.length; i++){
+    selectodd[i].style.backgroundColor="green"
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
