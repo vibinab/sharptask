@@ -10,11 +10,11 @@
 
     <form onsubmit="savetolocal(event)">
         <label>name</label>
-        <input type="text" name="username" required/>
+        <input id="username" type="text" name="username" required/>
         <label>email</label>
-        <input type="email" name="emailid" required/>
+        <input id="email" type="email" name="emailid" required/>
         <label> phone number</label>
-        <input type="tel" name="phonenumber">
+        <input id="phonenumber" type="tel" name="phonenumber">
         <button>submit</button>
 
     </form>
@@ -52,11 +52,39 @@
 
     function show(user){
         const parentNode=  document.getElementById('listofuser');
-        const  child=`<li>${user.name} ${user.email} <button> edit </button> <button>delete</button></li>`
+        const  child=`<li id=${user.email}>${user.name} ${user.email} <button onclick=edituser('${user.email}','${user.name}','${user.phonenumber}')> edit </button> 
+        <button onclick=deleteuser('${user.email}')>delete</button></li>`
 
         parentNode.innerHTML=parentNode.innerHTML+child;
 
     }
+
+    function deleteuser(emailid){
+        localStorage.removeItem(emailid)
+        removefromscreen(emailid)
+    }
+
+    function removefromscreen(emailid){
+        const parentNode=document.getElementById('listofuser')
+        const deletechild=document.getElementById(emailid)
+        parentNode.removeChild(deletechild)
+    }
+
+    function edituser(emailid,name,phonenumber){
+
+        document.getElementById('email').value=emailid;
+        document.getElementById('username').value=name;
+        document.getElementById('phonenumber').value=phonenumber
+
+
+       deleteuser(emailid)
+
+
+    }
+
+
+
+
 
 
 
