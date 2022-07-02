@@ -77,5 +77,9 @@ function filteritems(e) {
 }
 
 
-
+function savetolocal(event){
+    event.preventDefault();
+    const value=event.target.inputvalue.value
+    localStorage.setItem('value', value)
+}
 
